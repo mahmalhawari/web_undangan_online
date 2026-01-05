@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Ruhyat & Anita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="cover">
+        <div class="cover-content">
+            <div class="cover-content">
+        <h2 class="arab" style="color: white; margin-bottom: 20px;">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</h2>
+            <p style="letter-spacing: 5px; font-weight: 300;">THE WEDDING OF</p>
+            <h1>Ruhyat & Anita</h1>
+            <div class="tamu">
+                <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h2 id="nama-tamu">Nama Tamu</h2>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.8;">*Mohon maaf apabila ada kesalahan penulisan nama/gelar</p>
+            </div>
+            <button id="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
+        </div>
+    </section>
+
+    <main id="main-content" style="display:none;">
+        
+        <audio id="lagu" loop>
+            <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        </audio>
+
+    
+
+        <section class="section">
+            <h2 class="arab">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</h2>
+            <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+            <p class="quote">
+                "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang." <br>
+                <span style="font-weight: 600;">(QS. Ar-Rum: 21)</span>
+            </p>
+        </section>
+
+        <section class="section">
+            <p style="margin-bottom: 30px;">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:</p>
+            
+            <div class="mempelai-container">
+                <div class="mempelai-pria">
+                    <div class="foto-bulat" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887');"></div>
+                    <h3>Ruhyat</h3>
+                    <p>Putra dari Bapak Moch. Ridwan <br>& Alm. Ibu Lisna Sanusi</p>
+                </div>
+
+                <div class="pembatas">&</div>
+
+                <div class="mempelai-wanita">
+                    <div class="foto-bulat" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887');"></div>
+                    <h3>Anita</h3>
+                    <p>Putri dari Bapak Adang <br>& Ibu Anih</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-white">
+    <div class="event-box">
+        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #b08d57;">Akad & Resepsi</h2>
+        <hr style="width: 100px; border: 0.5px solid #b08d57; margin-bottom: 20px;">
+        <p><strong>Minggu, 25 Januari 2026</strong></p>
+        <p>Pukul 09.00 WIB - Selesai</p>
+        <p style="margin-top: 15px;"><strong>Lokasi Acara:</strong><br>
+        Jl. Kp. Kalurahan, Desa Cibatok 2<br>
+        Kecamatan Cibungbulang, Bogor</p>
+        
+        <a href="https://www.google.com/maps?q=Cibatok+2+Cibungbulang+Bogor" target="_blank" class="btn-peta">
+            Buka Petunjuk Jalan (Google Maps)
+        </a>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <p>Menuju Hari Bahagia:</p>
+        <div id="countdown"></div>
+    </div>
+
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15852.791535450897!2d106.6713769!3d-6.6223293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69d955f1e839e5%3A0x6969696969696969!2sCibatok%202%2C%20Cibungbulang%2C%20Bogor!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+            width="100%" height="350" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+</section>
+
+        <section class="section">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: #b08d57;">Galeri Bahagia</h2>
+            <div class="galeri-grid">
+                <div class="foto-item" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2069');"></div>
+                <div class="foto-item" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070');"></div>
+                <div class="foto-item" style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1887');"></div>
+                <div class="foto-item" style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070');"></div>
+            </div>
+        </section>
+
+        <section class="section bg-white">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #b08d57;">Kado Digital</h2>
+            <p>Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, dapat melalui nomor rekening di bawah ini:</p>
+            <div class="bank-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" width="100">
+                <p style="font-size: 1.2rem; letter-spacing: 2px; margin: 15px 0;"><strong>1234567890</strong></p>
+                <p>A/N Anita</p>
+                <button onclick="copyToClipboard('1234567890')" class="btn-copy">Salin Nomor Rekening</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Konfirmasi Kehadiran</h2>
+            <p>Mohon konfirmasikan kehadiran Anda melalui form di bawah ini:</p>
+            <div class="form-container">
+                <form id="rsvp-form">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+                    <select id="status" required>
+                        <option value="">Konfirmasi Kehadiran</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                    <button type="button" onclick="kirimWA()" class="btn-wa">Kirim via WhatsApp</button>
+                </form>
+            </div>
+        </section>
+        <section class="section">
+    <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: #b08d57;">Doa & Ucapan</h2>
+    <p>Tuliskan doa dan harapan terbaik Anda untuk kedua mempelai:</p>
+    
+    <div class="guestbook-container">
+        <div class="form-guestbook">
+            <input type="text" id="guest-name" placeholder="Nama Anda" required>
+            <textarea id="guest-msg" placeholder="Tulis ucapan doa di sini..." rows="3" required></textarea>
+            <button type="button" onclick="tambahUcapan()" class="btn-peta">Kirim Ucapan</button>
+        </div>
+
+        <div id="display-ucapan" class="display-ucapan">
+        
+            </div>
+    </div>
+</section>
+
+        <footer class="section" style="background: none; border: none; box-shadow: none;">
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.</p>
+            <p style="margin-top: 20px;">Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+            <br>
+            <p>Kami yang berbahagia,</p>
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: #b08d57;">Ruhyat & Anita</h2>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Fungsi Salin Rekening
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert("Nomor rekening berhasil disalin ke papan klip!");
+        }
+    </script>
+</body>
+</html>
