@@ -28,7 +28,7 @@ function bukaUndangan() {
     });
 }
 
-// 3. Fitur Countdown
+// 3. Fitur Countdown (UPDATE: Menggunakan kolom pemisah :)
 const tanggalTujuan = new Date("Jan 25, 2026 09:00:00").getTime();
 setInterval(() => {
     const sekarang = new Date().getTime();
@@ -41,7 +41,15 @@ setInterval(() => {
 
     const countdownElement = document.getElementById("countdown");
     if (countdownElement) {
-        countdownElement.innerHTML = `${hari}h ${jam}j ${menit}m ${detik}d`;
+        countdownElement.innerHTML = `
+            <div class="countdown-item"><span>${hari}</span><small>Hari</small></div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item"><span>${jam}</span><small>Jam</small></div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item"><span>${menit}</span><small>Menit</small></div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item"><span>${detik}</span><small>Detik</small></div>
+        `;
     }
 }, 1000);
 
