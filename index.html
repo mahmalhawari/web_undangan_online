@@ -9,17 +9,28 @@
     <style>
         /* CSS GLOBAL UNTUK MOBILE OPTIMIZATION */
         body {
-            font-size: 14px; /* Ukuran dasar lebih nyaman di HP */
+            font-size: 14px;
             overflow-x: hidden;
         }
 
+        /* TRANSISI KALEM (FADE IN UP) */
         .section {
-            padding: 40px 15px; /* Padding lebih kecil untuk layar sempit */
+            padding: 40px 15px;
             margin: 10px auto;
-            width: 95%; /* Kontainer memenuhi lebar layar HP */
+            width: 95%;
+            /* Keadaan awal: tidak terlihat dan agak di bawah */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
         }
 
-        h1 { font-size: 2.5rem !important; } /* Ukuran judul disesuaikan */
+        /* Keadaan saat muncul di layar */
+        .section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 { font-size: 2.5rem !important; }
         h2 { font-size: 1.8rem !important; }
 
         /* PERBAIKAN COUNTDOWN MOBILE */
@@ -27,8 +38,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 5px; /* Jarak lebih rapat di HP */
-            flex-wrap: nowrap; /* Mencegah kolom berantakan ke bawah */
+            gap: 5px;
+            flex-wrap: nowrap;
         }
 
         .countdown-item {
@@ -43,37 +54,25 @@
             padding-bottom: 20px;
         }
 
-        /* MEMPELAI CONTAINER MOBILE */
+        /* MEMPELAI CONTAINER MOBILE (TANPA FOTO) */
         .mempelai-container {
             display: flex;
-            flex-direction: column; /* Berjejer ke bawah di HP */
+            flex-direction: column;
             gap: 20px;
+            text-align: center;
         }
 
-        .foto-bulat {
-            width: 140px; /* Foto sedikit lebih kecil agar tidak memenuhi layar */
-            height: 140px;
-        }
-
-        /* IFRAME MAPS MOBILE */
         .map-container iframe {
-            height: 250px; /* Tinggi map disesuaikan agar tidak terlalu panjang */
+            height: 250px;
         }
 
-        /* EVENT BOX MOBILE */
         .event-box {
             padding: 20px 10px;
             width: 100%;
             box-sizing: border-box;
         }
 
-        /* FORM & INPUT MOBILE */
-        input, select, textarea {
-            font-size: 16px !important; /* Mencegah auto-zoom pada iPhone saat input */
-        }
-
         @media (min-width: 768px) {
-            /* Kembali ke tampilan desktop jika layar lebar */
             .mempelai-container { flex-direction: row; }
             .section { width: 80%; padding: 60px 20px; }
             h1 { font-size: 4rem !important; }
@@ -113,18 +112,13 @@
 
         <section class="section">
             <p style="margin-bottom: 20px;">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:</p>
-            
             <div class="mempelai-container">
-                <div class="mempelai-pria">
-                    <div class="foto-bulat" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887');"></div>
+                <div>
                     <h3>Ruhyat</h3>
                     <p>Putra dari Bapak Moch. Ridwan <br>& Alm. Ibu Lisna Sanusi</p>
                 </div>
-
-                <div class="pembatas">&</div>
-
-                <div class="mempelai-wanita">
-                    <div class="foto-bulat" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887');"></div>
+                <div class="pembatas" style="font-family: 'Great Vibes', cursive; font-size: 2rem; color: #b08d57;">&</div>
+                <div>
                     <h3>Anita</h3>
                     <p>Putri dari Bapak Adang <br>& Ibu Anih</p>
                 </div>
@@ -140,41 +134,55 @@
                 <p style="margin-top: 10px;"><strong>Lokasi Acara:</strong><br>
                 Jl. Kp. Kalurahan, Desa Cibatok 2<br>
                 Kecamatan Cibungbulang, Bogor</p>
-                
-                <a href="https://www.google.com/maps" target="_blank" class="btn-peta" style="font-size: 0.9rem;">
+                <a href="https://www.google.com/maps?q=Cibatok+2+Cibungbulang+Bogor" target="_blank" class="btn-peta" style="font-size: 0.9rem;">
                     Buka Petunjuk Jalan (Google Maps)
                 </a>
             </div>
-
             <div style="margin-top: 30px;">
                 <p>Menuju Hari Bahagia:</p>
                 <div id="countdown"></div>
             </div>
-
             <div class="map-container" style="margin-top: 20px;">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.4!2d106.6!3d-6.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzYnMDAuMCJTIDEwNsKwMzYnMDAuMCJF!5e0!3m2!1sid!2sid!4v123456789" 
-                    width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15852.791535450897!2d106.6713769!3d-6.6223293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69d955f1e839e5%3A0x6969696969696969!2sCibatok%202%2C%20Cibungbulang%2C%20Bogor!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="250" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section class="section bg-white">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2rem; color: #b08d57;">Kado Digital</h2>
+            <p style="font-size: 0.9rem;">Jika Anda ingin memberikan tanda kasih, dapat melalui nomor rekening di bawah ini:</p>
+            <div class="bank-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="BCA" width="80">
+                <p style="font-size: 1.1rem; letter-spacing: 1px; margin: 10px 0;"><strong>1234567890</strong></p>
+                <p>A/N Anita</p>
+                <button onclick="copyToClipboard('1234567890')" class="btn-copy">Salin Nomor Rekening</button>
             </div>
         </section>
 
         <section class="section">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #b08d57;">Doa & Ucapan</h2>
+            <h2 style="font-size: 1.5rem;">Konfirmasi Kehadiran</h2>
+            <form id="rsvp-form">
+                <input type="text" id="nama" placeholder="Nama Lengkap" required>
+                <select id="status" required>
+                    <option value="">Konfirmasi Kehadiran</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                </select>
+                <button type="button" onclick="kirimWA()" class="btn-wa">Kirim via WhatsApp</button>
+            </form>
+        </section>
+
+        <section class="section">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2rem; color: #b08d57;">Doa & Ucapan</h2>
             <div class="guestbook-container">
-                <div class="form-guestbook">
-                    <input type="text" id="guest-name" placeholder="Nama Anda" required>
-                    <textarea id="guest-msg" placeholder="Tulis ucapan doa di sini..." rows="3" required></textarea>
-                    <button type="button" onclick="tambahUcapan()" class="btn-peta">Kirim Ucapan</button>
-                </div>
+                <input type="text" id="guest-name" placeholder="Nama Anda" required>
+                <textarea id="guest-msg" placeholder="Tulis ucapan doa..." rows="3" required></textarea>
+                <button type="button" onclick="tambahUcapan()" class="btn-peta">Kirim Ucapan</button>
                 <div id="display-ucapan" class="display-ucapan"></div>
             </div>
         </section>
 
         <footer class="section" style="background: none; border: none; box-shadow: none; padding-bottom: 50px;">
-            <p style="font-size: 0.9rem;">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
             <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
-            <br>
             <p>Kami yang berbahagia,</p>
             <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #b08d57;">Ruhyat & Anita</h2>
         </footer>
@@ -182,6 +190,20 @@
 
     <script src="script.js"></script>
     <script>
+        // SCRIPT ANIMASI SCROLL (TRANSISI KALEM)
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text);
             alert("Nomor rekening berhasil disalin!");
