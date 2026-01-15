@@ -24,7 +24,6 @@
     </section>
 
     <main id="main-content" style="display:none;">
-        
         <audio id="lagu" loop>
             <source src="musik.mp3.mpeg" type="audio/mpeg">
         </audio>
@@ -73,14 +72,12 @@
         <section class="section bg-white">
             <h2 style="font-family: 'Great Vibes', cursive;">Kado Digital</h2>
             <p style="font-size: 0.9rem; margin-bottom: 20px;">Tanpa mengurangi rasa hormat, bagi tamu yang ingin memberikan tanda kasih dapat melalui:</p>
-            
             <div class="bank-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/512px-BRI_2020.svg.png" alt="BRI" class="bank-logo">
                 <p style="font-size: 1.2rem; font-weight: bold;">479601020378531</p>
                 <p>A/N Moh Ruhyat</p>
                 <button onclick="copyToClipboard('479601020378531')" class="btn-copy">Salin No. Rekening</button>
             </div>
-
             <div class="bank-card">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1200px-Logo_dana_blue.svg.png" alt="Dana Logo" class="bank-logo">
                 <p style="font-size: 1.2rem; font-weight: bold; margin: 5px 0;">085719503187</p>
@@ -121,53 +118,6 @@
         </footer>
     </main>
 
-    <script>
-        function bukaUndangan() {
-            document.getElementById('cover').style.transform = 'translateY(-100%)';
-            document.getElementById('main-content').style.display = 'block';
-            document.getElementById('lagu').play();
-            setTimeout(() => { window.dispatchEvent(new Event('scroll')); }, 100);
-        }
-
-        window.addEventListener('scroll', function() {
-            var sections = document.querySelectorAll('.section');
-            sections.forEach(function(sec) {
-                var top = window.scrollY;
-                var offset = sec.offsetTop - 600;
-                if (top >= offset) {
-                    sec.classList.add('show');
-                }
-            });
-        });
-
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text);
-            alert("Nomor berhasil disalin!");
-        }
-
-        const targetDate = new Date("Jan 25, 2026 09:00:00").getTime();
-        setInterval(function() {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = `
-                <div class="countdown-item"><span>${days}</span>Hari</div>
-                <div class="countdown-item"><span>${hours}</span>Jam</div>
-                <div class="countdown-item"><span>${mins}</span>Menit</div>
-                <div class="countdown-item"><span>${secs}</span>Detik</div>
-            `;
-        }, 1000);
-
-        function kirimWA() {
-            const nama = document.getElementById('nama').value;
-            const status = document.getElementById('status').value;
-            const pesan = `Halo, saya ${nama}. Saya mengonfirmasi bahwa saya akan ${status} di pernikahan Ruhyat & Anita.`;
-            window.open(`https://wa.me/6285719503187?text=${encodeURIComponent(pesan)}`);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
