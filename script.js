@@ -1,5 +1,5 @@
-// 1. Fungsi Ambil Nama dari URL (WAJIB ADA)
-window.addEventListener('DOMContentLoaded', () => {
+// 1. Fungsi Ambil Nama dari URL
+document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('to');
     const namaDisplay = document.getElementById('nama-tamu');
@@ -12,23 +12,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 2. Fungsi Buka Undangan
 function bukaUndangan() {
-    // Geser Cover ke atas
     const cover = document.getElementById('cover');
     cover.style.transform = 'translateY(-100%)';
     
-    // Munculkan Konten Utama
     const mainContent = document.getElementById('main-content');
     mainContent.style.display = 'block';
 
-    // Putar Musik
     const lagu = document.getElementById('lagu');
     lagu.play().catch(error => {
-        console.log("Browser memblokir autoplay, mencoba lagi via klik...");
+        console.log("Autoplay diblokir browser");
         document.body.addEventListener('click', () => { lagu.play(); }, { once: true });
     });
+    
+    // Trigger animasi scroll agar muncul kalem
+    setTimeout(() => { window.dispatchEvent(new Event('scroll')); }, 100);
 }
 
-// 3. Fitur Countdown (UPDATE: Menggunakan kolom pemisah :)
+// Efek Scroll Kalem
+window.addEventListener('scroll', function() {
+    var sections = document.querySelectorAll('.section');
+    sections.forEach(function(sec) {
+        var top = window.scrollY;
+        var offset = sec.offsetTop - 600;
+        if (top >= offset) {
+            sec.classList.add('show');
+        }
+    });
+});
+
+// 3. Fitur Countdown
 const tanggalTujuan = new Date("Jan 25, 2026 09:00:00").getTime();
 setInterval(() => {
     const sekarang = new Date().getTime();
@@ -43,11 +55,11 @@ setInterval(() => {
     if (countdownElement) {
         countdownElement.innerHTML = `
             <div class="countdown-item"><span>${hari}</span><small>Hari</small></div>
-            <div class="countdown-separator">:</div>
+            <div class="countdown-separator" style="font-weight:bold; color:#b08d57; align-self:center;">:</div>
             <div class="countdown-item"><span>${jam}</span><small>Jam</small></div>
-            <div class="countdown-separator">:</div>
+            <div class="countdown-separator" style="font-weight:bold; color:#b08d57; align-self:center;">:</div>
             <div class="countdown-item"><span>${menit}</span><small>Menit</small></div>
-            <div class="countdown-separator">:</div>
+            <div class="countdown-separator" style="font-weight:bold; color:#b08d57; align-self:center;">:</div>
             <div class="countdown-item"><span>${detik}</span><small>Detik</small></div>
         `;
     }
@@ -57,7 +69,7 @@ setInterval(() => {
 function kirimWA() {
     const nama = document.getElementById('nama').value;
     const status = document.getElementById('status').value;
-    const noHP = "628123456789"; // << GANTI DENGAN NOMOR HP KAMU (Awali 62)
+    const noHP = "6285719503187"; // Nomor tujuan RSVP
     
     if (!nama || !status) {
         alert("Silakan isi nama dan status kehadiran.");
@@ -71,22 +83,26 @@ function kirimWA() {
 // 5. Salin Rekening
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-        alert("Nomor rekening berhasil disalin!");
+        alert("Nomor berhasil disalin!");
     });
 }
 
-// 6. Fitur Guestbook (Tambah Ucapan)
+// 6. Fitur Guestbook
 function tambahUcapan() {
     const nama = document.getElementById('guest-name').value;
     const pesan = document.getElementById('guest-msg').value;
+    const display = document.getElementById('display-ucapan');
     
     if (nama && pesan) {
         const div = document.createElement('div');
-        div.className = 'ucapan-item';
-        div.innerHTML = `<strong>${nama}</strong><p>${pesan}</p>`;
-        document.getElementById('display-ucapan').prepend(div);
+        div.style.background = "#f9f9f9";
+        div.style.padding = "10px";
+        div.style.borderRadius = "10px";
+        div.style.marginBottom = "10px";
+        div.style.borderLeft = "4px solid #b08d57";
+        div.innerHTML = `<strong>${nama}</strong><p style="margin:5px 0;">${pesan}</p>`;
+        display.prepend(div);
         
-        // Reset form
         document.getElementById('guest-name').value = "";
         document.getElementById('guest-msg').value = "";
     } else {
