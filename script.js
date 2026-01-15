@@ -87,13 +87,40 @@ function copyToClipboard(text) {
     });
 }
 
-// 6. Fitur Guestbook
+// 6. Fitur Guestbook (DIPERBAIKI: Menggunakan LocalStorage agar tidak hilang)
+
+// Fungsi untuk memuat ucapan yang tersimpan saat halaman dibuka
+document.addEventListener('DOMContentLoaded', () => {
+    // ... kode ambil nama tamu yang sudah ada ...
+    
+    const ucapanTersimpan = JSON.parse(localStorage.getItem('daftarUcapan')) || [];
+    const display = document.getElementById('display-ucapan');
+    
+    ucapanTersimpan.forEach(item => {
+        const div = document.createElement('div');
+        div.style.background = "#f9f9f9";
+        div.style.padding = "10px";
+        div.style.borderRadius = "10px";
+        div.style.marginBottom = "10px";
+        div.style.borderLeft = "4px solid #b08d57";
+        div.innerHTML = `<strong>${item.nama}</strong><p style="margin:5px 0;">${item.pesan}</p>`;
+        display.appendChild(div);
+    });
+});
+
 function tambahUcapan() {
     const nama = document.getElementById('guest-name').value;
     const pesan = document.getElementById('guest-msg').value;
     const display = document.getElementById('display-ucapan');
     
     if (nama && pesan) {
+        // 1. Simpan ke LocalStorage
+        const ucapanBaru = { nama: nama, pesan: pesan };
+        const ucapanTersimpan = JSON.parse(localStorage.getItem('daftarUcapan')) || [];
+        ucapanTersimpan.unshift(ucapanBaru); // Tambah ke urutan paling atas
+        localStorage.setItem('daftarUcapan', JSON.stringify(ucapanTersimpan));
+
+        // 2. Tampilkan di layar
         const div = document.createElement('div');
         div.style.background = "#f9f9f9";
         div.style.padding = "10px";
@@ -103,6 +130,7 @@ function tambahUcapan() {
         div.innerHTML = `<strong>${nama}</strong><p style="margin:5px 0;">${pesan}</p>`;
         display.prepend(div);
         
+        // Reset form
         document.getElementById('guest-name').value = "";
         document.getElementById('guest-msg').value = "";
     } else {
